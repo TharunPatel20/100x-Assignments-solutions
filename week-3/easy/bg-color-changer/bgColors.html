@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background color changer</title>
+    <link
+      rel="icon"
+      type="icon"
+      href="https://wallpapercave.com/wp/x7qo8V5.jpg"
+    />
+    <style>
+      #main div {
+        background-color: pink;
+        border-radius: 30px;
+        box-shadow: 2px 2px 10px rgb(226, 208, 208);
+        transition: cubic-bezier(0.39, 0.575, 0.565, 1);
+      }
+      #main {
+        display: flex;
+        justify-content: center;
+      }
+      #main button {
+        padding: 10px 20px;
+        margin: 20px;
+        background-color: white;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+      #main button:hover {
+        position: relative;
+        border: none;
+        box-shadow: 0px 0px 20px coral;
+      }
+      #main button::after {
+        position: relative;
+        border: none;
+        box-shadow: 0px 0px 20px coral;
+      }
+    </style>
+
+    <script>
+      function color(value) {
+        document.body.style.backgroundColor = value;
+      }
+      function addColor() {
+        document.body.style.backgroundColor = white;
+      }
+    </script>
+  </head>
+  <body>
+    <div style="width: auto; height: 500px"></div>
+    <div id="main">
+      <div>
+        <button onclick="color('white')">default</button>
+        <button id="red" onclick="color('red')">red</button>
+        <button onclick="color('yellow')">yellow</button>
+        <button onclick="color('green')">green</button>
+        <button onclick="color('blue')">blue</button>
+        <button onclick="color('black')">black</button>
+        <button onclick="color('purple')">purple</button>
+        <button onclick="color('brown')">brown</button>
+      </div>
+    </div>
+  </body>
+</html>

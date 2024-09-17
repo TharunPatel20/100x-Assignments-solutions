@@ -1,0 +1,114 @@
+/* General body styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Center the entire user input section */
+.userinput {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 20px;
+  min-width: auto;
+  max-width: 900px; /* Limit the maximum width */
+  background-color: #fff; /* White background for the user input area */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Input section styling */
+.input {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3px; /* Space between elements */
+}
+
+.input input,
+.input select,
+.input button,
+h2 button {
+  padding: 10px;
+  margin: 2px;
+  border-radius: 5px;
+  border: 2px solid #000000;
+}
+
+h2 button:hover {
+  background-color: rgb(228, 92, 92);
+}
+.input button:hover {
+  background-color: rgb(160, 229, 160);
+}
+h2 {
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+/* Container for the output cards */
+.output {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* 3 cards per row, responsive */
+  gap: 20px; /* Spacing between cards */
+  justify-content: center; /* Center align cards */
+  padding: 20px;
+}
+
+/* Container for the output cards */
+.output {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Spacing between cards */
+  justify-content: center; /* Center align cards */
+  padding: 20px;
+}
+
+/* Individual card styling */
+.output div {
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(61, 43, 43, 0.1);
+  overflow: hidden;
+  width: 200px; /* Fixed width for cards */
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+/* Card header styling */
+.output h3 {
+  margin: 0;
+  padding: 10px;
+  background-color: rgba(47, 255, 19, 0.214);
+  color: #333;
+  font-size: 1.2em;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+/* Card content styling */
+.output p {
+  margin: 10px;
+  font-size: 0.9em;
+  color: #312828;
+}
+
+/* Card image styling */
+.output img {
+  width: auto;
+  height: auto;
+  border-top: 2px solid #ddd;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+}

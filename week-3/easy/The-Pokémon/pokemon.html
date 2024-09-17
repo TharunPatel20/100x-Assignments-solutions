@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.6/axios.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokémon</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 >Get your&nbsp<i><u>Pokémon</u></i>&nbspcards</h1>
+    <div class="userinput">
+      <div class="input" id="input">
+        <label for="NoOfcards"></label>
+        <input
+          type="number"
+          class="number"
+          id="NoOfcards"
+          min="1"
+          placeholder="Enter number of cards "
+          required
+        />
+        <select id="category">
+          <option value="random">Random</option>
+          <option value="fire">Fire</option>
+          <option value="water">Water</option>
+          <option value="grass">Grass</option>
+          <option value="electric">Electric</option>
+          <option value="ice">Ice</option>
+          <option value="dragon">Dragon</option>
+          <option value="dark">Dark</option>
+          <option value="flying">Flying</option>
+          <option value="bug">Bug</option>
+        </select>
+
+        <button onclick="getThem()">Submit</button>
+      </div>
+      <br />
+      <div>
+      <h2>
+        
+          Desired number of cards
+          <button onclick="removeThem()">Clear cards</button>
+        </div>
+      </h2>
+
+      <div id="output" class="output"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
