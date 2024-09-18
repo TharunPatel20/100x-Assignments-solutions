@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taskify</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="task.js"></script>
+  </head>
+  <body>
+    <div class="userInput">
+      <div class="usergrid">
+        <input type="text" placeholder="Enter task heading" id="heading" />
+        <textarea
+          id="description"
+          placeholder="Task description goes here..."
+        ></textarea>
+        <select id="type">
+          <option value="low">Low</option>
+          <option value="mid">Mid</option>
+          <option value="high">High</option>
+        </select>
+        <button onclick="createTask()">Create Task</button>
+      </div>
+    </div>
+
+    <div class="flex">
+      <div class="grid">
+        <div class="task-column">
+          <h3>Task</h3>
+          <div class="drag-container" id="tasks"></div>
+        </div>
+
+        <div class="task-column">
+          <h3>In Progress</h3>
+          <div class="drag-container" id="progress"></div>
+        </div>
+
+        <div class="task-column">
+          <h3>Under Review</h3>
+          <div class="drag-container" id="review"></div>
+        </div>
+
+        <div class="task-column">
+          <h3>Finished</h3>
+          <div class="drag-container" id="finished"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="task.js"></script>
+  </body>
+</html>

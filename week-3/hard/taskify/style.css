@@ -1,0 +1,87 @@
+body {
+  margin: 40px;
+}
+
+.flex {
+  max-width: 1200px;
+  padding: 4px;
+  margin: auto;
+}
+
+.grid {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 5px;
+}
+
+.task-column {
+  height: 600px;
+  border: 1px solid black;
+  padding: 2px;
+  margin: 3px;
+  overflow-y: scroll;
+}
+
+.usergrid {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 7fr 0.5fr 1fr;
+  gap: 5px;
+}
+
+.usergrid button {
+  cursor: pointer;
+  width: 100%;
+  padding: 4px;
+  border: 1px solid black;
+}
+
+h3 {
+  text-align: center;
+  margin: auto;
+}
+
+.userInput {
+  border: 1px solid;
+  text-align: center;
+  max-width: 1200px;
+  padding: 4px;
+  margin: auto;
+  margin-bottom: 0.8rem;
+}
+
+.usergrid button:hover {
+  background-color: aquamarine;
+}
+
+#tasks div,
+#progress div,
+#review div,
+#finished div {
+  width: auto;
+  padding: 5px;
+  margin: 2px;
+  min-height: auto;
+  border: 1px solid;
+  border-radius: 9px;
+  margin-bottom: 4px;
+  cursor: move;
+}
+
+#tasks,
+#progress,
+#review,
+#finished {
+  border: 0.1px solid;
+  height: 96%;
+  overflow-y: auto;
+}
+
+#tasks,
+#progress,
+#review,
+#finished {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
