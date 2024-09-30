@@ -28,10 +28,12 @@
               password,
             }
           );
-          alert("Response headers:", response.headers.authorization);
+
           if (response.status === 200) {
             const token = response.headers["authorization"].split(" ")[1];
             localStorage.setItem("token", token);
+            localStorage.setItem("username", response.data.user.username);
+            // alert(response.headers["authorization"]);
             window.location.href = "index.html";
           } else {
             alert("Sign in failed. Please try again.");

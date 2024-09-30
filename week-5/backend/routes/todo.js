@@ -8,9 +8,10 @@ const {
   getTodoById,
 } = require("./functions/todo");
 const todoRoute = Router();
-const { authUser } = require("../middleware/user");
-// todoRoute.use(authUser);
-todoRoute.get("/all", getTodos);
+const { authUser, rateLimit } = require("../middleware/user");
+todoRoute.use(authUser);
+todoRoute.use(rateLimit);
+// todoRoute.get("/all", getTodos);
 todoRoute.post("/", addTodo);
 todoRoute.get("/", getAllTodos);
 todoRoute.post("/", addTodo);

@@ -38,21 +38,24 @@ async function userSignin(req, res) {
       process.env.JWT_SECRET
     );
     res.setHeader("Authorization", `Bearer ${token}`);
-    res.status(200).json({ msg: "Sign-in successful", token: token });
+    res.status(200).json({ user: userFound, token: token });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 }
 
 async function userDetails(req, res) {
-  const email = req.headers.email;
+  const userId = req.userId;
+  console.log();
   try {
-    const user = await userModel.findOne({ email });
+    const user = await userModel.findOne({ _id: userId });
+    console.log(user);
     res.status(200).json({ user });
   } catch (error) {
     res.status(400).json({ msg: error.message });
   }
 }
+
 async function userLogout(req, res) {
   res.setHeader("token", null);
   res.setHeader("id", null);

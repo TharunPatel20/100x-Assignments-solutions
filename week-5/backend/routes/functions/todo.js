@@ -2,8 +2,8 @@ const { todoModel } = require("../../db/index");
 
 async function getAllTodos(req, res) {
   try {
-    const id = req.headers.id;
-    const userTodos = await todoModel.find({ userId: id });
+    const userTodos = await todoModel.find({ userId: req.userId });
+    console.log("all todos", req.userId, "usertodos", userTodos);
     res.json({ userTodos });
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -12,8 +12,9 @@ async function getAllTodos(req, res) {
 
 async function getTodos(req, res) {
   try {
-    const userTodos = await todoModel.find();
-    res.json({ userTodos });
+    const userTodos = await todoModel.findOne({ userId: req.userId });
+    console.log("all todos", req.userId);
+    res.status(200).json({ userTodos });
   } catch (error) {
     res.status(400).json({ error: error.message, how: "howww" });
   }
@@ -31,17 +32,15 @@ async function getTodoById(req, res) {
 
 async function addTodo(req, res) {
   try {
-    const userId = req.headers.id || null;
-    // if (userId == null) {
-    //   res.json({ userId: "invalid user, user id should provide in headers" });
-    // } else {
-    console.log(userId);
+    const userId = req.userId;
+    console.log("add todo", req.userId);
     const { title, description } = req.body;
     const todo = await todoModel.create({
       userId: userId,
       title,
       description,
     });
+    console.log(todo);
     res.json({ todo });
     // }
   } catch (error) {
@@ -70,6 +69,7 @@ async function updateTodo(req, res) {
 async function deleteTodo(req, res) {
   try {
     const todoId = req.params.id;
+    console.log("whyyy");
     const success = await todoModel.deleteOne({ _id: todoId });
     res.json({ delete: success });
   } catch (error) {
