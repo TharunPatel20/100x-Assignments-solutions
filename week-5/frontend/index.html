@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taskify Frontend</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- start writing code -->
+
+    <div class="main">
+      <div class="header">
+        <lable id="username"> username</lable>
+        <div>
+          <h2>Todos</h2>
+        </div>
+        <div>
+          <button onclick="userLogout()">logout</button>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="todos">
+          <div id="todolist">
+            <h5>Add your tasks</h5>
+          </div>
+        </div>
+        <div>
+          <div>
+            <form class="todo">
+              Title:
+              <input type="=text" id="title" placeholder="title" />
+              Description :
+              <textarea placeholder="description" id="description"></textarea>
+              <button class="add" onclick="addTodo()">Add a todo</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="signup()">sign-up</button>
+    email<input type="email" id="email" placeholder="email" /> password<input
+      type="password"
+      id="password"
+      placeholder="password"
+    />
+    <button onclick="signin()">signin</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      async function signin() {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        try {
+          const response = await axios.post(
+            "http://localhost:3000/user/signin",
+            {
+              email,
+              password,
+            }
+          );
+          alert("Response headers:", response.headers.authorization);
+          if (response.status === 200) {
+            const token = response.headers["authorization"].split(" ")[1];
+            localStorage.setItem("token", token);
+            window.location.href = "index.html";
+          } else {
+            alert("Sign in failed. Please try again.");
+          }
+        } catch (error) {
+          alert(
+            `Sign in failed: ${error.response?.data?.error || "Unknown error"}`
+          );
+        }
+      }
+
+      function signup() {
+        window.location.href = "signup.html";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      async function login() {
+        alert("login");
+        const google = await axios.get("http://localhost:3000/user/oauth");
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <h1><center>hellooo</center></h1>
+      <div>
+        <button onclick="login()">signup</button><button>signin</button>
+      </div>
+    </div>
+  </body>
+</html>

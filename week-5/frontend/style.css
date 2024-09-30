@@ -1,0 +1,24 @@
+/* start from here */
+.main {
+  max-width: 1000px;
+  margin: auto;
+  border: 2px solid;
+  padding: 4px;
+  min-height: 500px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr auto;
+  align-content: center;
+  column-gap: 5px;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+}
+.grid div {
+  min-height: 200px;
+  border: 1px solid;
+}
