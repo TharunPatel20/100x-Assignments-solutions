@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="home.css" />
   </head>
   <body>
     <div>
@@ -11,12 +12,77 @@
       <button onclick="signin()">sign-in</button>
     </div>
     <p>you can manage ur tasks and schedule them based on priority</p>
+
+    <div class="signup-popup">
+      email<input type="email" id="email" placeholder="email" /> password<input
+        type="password"
+        id="password"
+        placeholder="password"
+      />
+      username<input type="username" id="username" placeholder="username" />
+      <button onclick="signup()">sign-up</button>
+    </div>
+    <div class="signin-popup">
+      email<input type="email" id="email" placeholder="email" /> password<input
+        type="password"
+        id="password"
+        placeholder="password"
+      />
+      <button onclick="signin()">signin</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-      function signup() {
-        window.location.href = "signup.html";
+      async function signin() {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        try {
+          const response = await axios.post(
+            "http://localhost:3000/user/signin",
+            {
+              email,
+              password,
+            }
+          );
+
+          if (response.status === 200) {
+            const token = response.headers["authorization"].split(" ")[1];
+            localStorage.setItem("token", token);
+            localStorage.setItem("username", response.data.user.username);
+            // alert(response.headers["authorization"]);
+            window.location.href = "index.html";
+          } else {
+            alert("Sign in failed. Please try again.");
+          }
+        } catch (error) {
+          alert(
+            `Sign in failed: ${error.response?.data?.error || "Unknown error"}`
+          );
+        }
       }
-      function signin() {
-        window.location.href = "signin.html";
+
+      async function signup() {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const username = document.getElementById("username").value;
+
+        try {
+          const response = await axios.post(
+            "http://localhost:3000/user/signup",
+            {
+              email: email,
+              password: password,
+              username: username,
+            }
+          );
+          if (response.status === 201) {
+            window.location.href = "./home.html";
+          } else alert("signup failed");
+        } catch (error) {
+          alert(
+            `Signup failed: ${error.response?.data?.msg || "Unknown error"}`
+          );
+        }
       }
     </script>
   </body>
