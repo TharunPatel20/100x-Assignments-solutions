@@ -10,6 +10,7 @@ const todoSchema = new mongoose.Schema({
   title: String,
   description: String,
   userId: { type: mongoose.Types.ObjectId, rel: "USER" },
+  priority: String,
 });
 
 const userModel = mongoose.model("USER", userSchema);

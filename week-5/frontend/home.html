@@ -8,8 +8,8 @@
   </head>
   <body>
     <div>
-      <button onclick="signup()">sign-up</button>
-      <button onclick="signin()">sign-in</button>
+      <button onclick="signupPopup()">sign-up</button>
+      <button onclick="signinPopup()">sign-in</button>
     </div>
     <p>you can manage ur tasks and schedule them based on priority</p>
 
@@ -23,9 +23,10 @@
       <button onclick="signup()">sign-up</button>
     </div>
     <div class="signin-popup">
-      email<input type="email" id="email" placeholder="email" /> password<input
+      email<input type="email" id="signin-email" placeholder="email" />
+      password<input
         type="password"
-        id="password"
+        id="signin-password"
         placeholder="password"
       />
       <button onclick="signin()">signin</button>
@@ -33,9 +34,9 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
       async function signin() {
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-
+        const email = document.getElementById("signin-email").value;
+        const password = document.getElementById("signin-password").value;
+        console.log(email, password);
         try {
           const response = await axios.post(
             "http://localhost:3000/user/signin",

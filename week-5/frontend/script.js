@@ -26,15 +26,18 @@ function render(todos) {
   todolist.innerHTML = "";
   let count = 1;
   todos.forEach((todo) => {
-    const todoDiv = document.createElement("p");
-    todoDiv.setAttribute("id", todo._id);
-    todoDiv.innerHTML = `
-      <span id="${todo._id}">${count++}.</span>
-      <span><b>${todo.title}:</b></span>
-      <span><i>${todo.description}</i></span>
-      <button onclick="edit('${todo._id}')" id="edit">edit</button>
-      <button onclick="deleteTodo('${todo._id}')" id="delete">del</button>
-      <button onclick="strike('${todo._id}')" id="${todo._id}">over</button>
+    const todoDiv = document.createElement("div");
+    todoDiv.setAttribute("id", "todo");
+    todoDiv.innerHTML = `<h4> 
+    <div>${count++}. ${todo.title}:</div>
+    <div><button onclick="editTodoPopup('${todo._id}')" id="edit">edit</button>
+    <button onclick="deleteTodo('${todo._id}')" id="delete">del</button>
+    </div></h4>
+    <b>desctiption</b>
+    <p><i>${todo.description}</i></p>
+    <br> <span>priority : ${todo.priority}</span>
+    <br> <span>date created : ${todo.date}</span>
+
     `;
     todolist.appendChild(todoDiv);
   });
@@ -44,8 +47,10 @@ getAllTodos();
 async function addTodo() {
   const title = document.getElementById("title").value;
   const description = document.getElementById("description").value;
+  const priority = document.getElementById("priority").value;
   const token = localStorage.getItem("token");
-  const data = { title, description };
+  const data = { title, description, priority };
+
   try {
     console.log(data);
     await axios.post("http://localhost:3000/todo/", data, {
@@ -70,11 +75,6 @@ async function deleteTodo(id) {
     headers: { Authorization: `Bearer ${token}` },
   });
   getAllTodos();
-}
-
-function strike(id) {
-  const style = "text-decoration: line-through;";
-  document.getElementById(id).setAttribute("style", style);
 }
 
 function userLogout() {
@@ -114,4 +114,10 @@ async function verifyUser() {
 // Call verifyUser only on login page or after a successful login
 if (window.location.pathname === "/home.html") {
   verifyUser();
+}
+
+function addTodoPopup() {}
+function editTodoPopup(id) {
+  addTodoPopup();
+  deleteTodo(id);
 }

@@ -7,38 +7,53 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <!-- start writing code -->
-
-    <div class="main">
-      <div class="header">
-        <lable id="username"> username</lable>
+    <div class="header">
+      <h2>welcome, <lable id="username"> username</lable></h2>
+      <button onclick="userLogout()" class="logoutbutton">logout</button>
+    </div>
+    <div class="container">
+      <div class="main">
         <div>
-          <h2>Todos</h2>
+          <h3>your todos are listed down here...</h3>
         </div>
-        <div>
-          <button onclick="userLogout()">logout</button>
+        <div class="button">
+          <button class="add" onclick="addTodoPopup()">Add one</button>
         </div>
       </div>
-      <div class="grid">
-        <div class="todos">
-          <div id="todolist">
-            <h5>Add your tasks</h5>
-          </div>
-        </div>
-        <div>
-          <div>
-            <form class="todo">
-              Title:
-              <input type="=text" id="title" placeholder="title" />
-              Description :
-              <textarea placeholder="description" id="description"></textarea>
-              <button class="add" onclick="addTodo()">Add a todo</button>
-            </form>
-          </div>
+      <div class="todoContainer">
+        <div id="todolist">
+          <h3>Add your tasks</h3>
         </div>
       </div>
     </div>
+    <div class="addtodo-popup">
+      <div><h3>Add a todo</h3></div>
+      <div>
+        <h4>Title: <input type="=text" id="title" placeholder="title" /></h4>
+      </div>
+
+      <div>
+        <h4>
+          Description :<textarea
+            placeholder="description"
+            id="description"
+          ></textarea>
+        </h4>
+      </div>
+      <div>
+        <h4>
+          priority
+          <select id="priority" aria-dropeffect="popup">
+            <option value="low">low</option>
+            <option value="low">mid</option>
+            <option value="low">high</option>
+          </select>
+        </h4>
+      </div>
+      <div><button class="add" onclick="addTodo()">Add a todo</button></div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./script.js"></script>
+    <script></script>
   </body>
 </html>

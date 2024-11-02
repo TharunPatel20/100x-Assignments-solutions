@@ -34,11 +34,12 @@ async function addTodo(req, res) {
   try {
     const userId = req.userId;
     console.log("add todo", req.userId);
-    const { title, description } = req.body;
+    const { title, description, priority } = req.body;
     const todo = await todoModel.create({
       userId: userId,
       title,
       description,
+      priority,
     });
     console.log(todo);
     res.json({ todo });
