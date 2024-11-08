@@ -1,0 +1,58 @@
+/* start  writing from here */
+body {
+  background: #26272a;
+  font-family: monospace;
+}
+.content {
+  border-radius: 20px;
+  /* background: rgb(195, 162, 162); */
+  max-width: 800px;
+  margin: auto 20%;
+  color: white;
+  font-size: large;
+  justify-items: center;
+}
+
+.allCourses {
+  border: 1px solid;
+  background-color: #0d1117;
+  text-align: center;
+  color: white;
+  /* padding: 0 20%; */
+  min-width: 600px;
+}
+.allCourses li {
+  list-style-type: none;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  border-radius: 30px;
+  background-color: #0d1117;
+  color: white;
+  margin: 12px;
+}
+.header-left {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.header-right {
+  font-size: 20px;
+}
+a {
+  color: white;
+  text-decoration: solid;
+}
+
+a::after {
+  color: rgb(31, 82, 127);
+}
+
+.content {
+  diaplay: flex;
+  justify-content: center;
+  align-items: center;
+}

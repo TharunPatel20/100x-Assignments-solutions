@@ -61,7 +61,7 @@ userRoute.post("/users/login", async (req, res) => {
   }
 });
 
-userRoute.get("/users/courses", authMiddleware, async (req, res) => {
+userRoute.get("/users/courses", async (req, res) => {
   // logic to list all courses
   try {
     const AllCourses = await Course.find({ published: true });
